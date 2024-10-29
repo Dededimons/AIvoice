@@ -5,10 +5,8 @@ from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 file_path = r"TestFiles\test.wav" 
 audio, sample_rate = librosa.load(file_path, sr=16000)
 
-input_values = torch.tensor(audio).unsqueeze(0) 
-
-processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-large-xlsr-53")
-model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-large-xlsr-53")
+processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-large-xlsr-53", force_download=True)
+model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-large-xlsr-53", force_download=True)
 
 inputs = processor(audio, sampling_rate=16000, return_tensors="pt", padding=True)
 
