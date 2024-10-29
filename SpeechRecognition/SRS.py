@@ -3,7 +3,7 @@ import librosa
 from transformers import AutoProcessor, AutoModelForSpeechSeq2Seq
 import os
 
-file_path = r"TestFiles\test.wav" 
+file_path = r"TestFiles\wavtest.wav" 
 audio, sample_rate = librosa.load(file_path, sr=16000)
 
 
